@@ -1,0 +1,5 @@
+# 项目排除路径
+/1SparseArray/target/
+/2Queue/target/
+/3LinkedList/target/
+/4Stack/target/

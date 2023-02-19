@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="2Queue" />
+        <module name="1SparseArray" />
+        <module name="3LinkedList" />
+        <module name="4Stack" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1.实际编程中可能会遇到的问题" target="8" />
+      <module name="1ProgramProblems" target="8" />
+      <module name="1实际编程中可能会遇到的问题" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
