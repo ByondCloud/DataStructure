@@ -11,6 +11,7 @@
         <module name="1SparseArray" />
         <module name="3LinkedList" />
         <module name="4Stack" />
+        <module name="5Recursion" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
