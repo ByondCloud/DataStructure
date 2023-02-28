@@ -15,6 +15,11 @@
         <module>3LinkedList</module>
         <module>4Stack</module>
         <module>5Recursion</module>
+        <module>6Sort</module>
+        <module>7Search</module>
+        <module>8Hash</module>
+        <module>9HashTable</module>
+        <module>10Tree</module>
     </modules>
 
     <properties>

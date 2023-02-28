@@ -8,9 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="2Queue" />
+        <module name="8Hash" />
         <module name="1SparseArray" />
         <module name="3LinkedList" />
+        <module name="6Sort" />
+        <module name="10Tree" />
         <module name="4Stack" />
+        <module name="7Search" />
+        <module name="9HashTable" />
         <module name="5Recursion" />
       </profile>
     </annotationProcessing>
