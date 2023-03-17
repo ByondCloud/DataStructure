@@ -1,0 +1,79 @@
+package com.cloud.eKMP算法;
+
+/**
+ * @author ByondCloud
+ * @version 1.0
+ * @Date 2023/3/16
+ * @Time 5:02
+ */
+@SuppressWarnings("all")
+public class MySelf {
+    public static void main(String[] args) {
+        String text = "ABABDABACDABABCABAB";
+        String pattern = "ABABC";
+        int index = kmp(text, pattern);
+        if (index == -1) {
+            System.out.println("Pattern not found in the text.");
+        } else {
+            System.out.println("Pattern found at index " + index);
+        }
+    }
+
+
+    private static int[] getNext(String pattern) {
+        // 这里记得 + 1，因为都是向后一位记录
+        // 记录第一个数就是从下标为2的地方开始写
+        int[] next = new int[pattern.length() + 1];
+
+        // i表示整个数组的下标
+        // j表示重复数组的下标
+        int i = 1, j = 0;
+
+        // 一直循环到整个字符串遍历完
+        while (i < pattern.length()) {
+            // 如果j == 0 表示当前所在的位置和之前都没重复，或者是只有一个是一样的
+            // 这里用或
+            if (j == 0 || pattern.charAt(i) == pattern.charAt(j))
+                next[++i] = ++j;
+            else
+                // 看视频
+                // 等于上一个重复的地方
+                j = next[j];
+
+        }
+
+        return next;
+    }
+
+    public static int kmp(String str, String pattern) {
+        int[] next = getNext(pattern);
+        // i是大的字符串下标
+        // j是需要找的字符串下标
+        int i = 0, j = 0;
+        // 是否到达了最后，防止数组越界
+        while (i < str.length() && j < pattern.length()) {
+            // 如果相等，下标都向后移，查看下一个是否一致
+            if (str.charAt(i) == pattern.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                // 否则先判断需要找的字符串到了最前面了没
+                // 没到最前面找上一个节点
+                if (j != 0) {
+                    j = next[j - 1];
+                } else {
+                    // 如果到了最前，找下一个
+                    i++;
+                }
+
+            }
+        }
+        if (j == pattern.length())
+            return i - j;
+        else
+            return -1;
+
+    }
+
+}
+

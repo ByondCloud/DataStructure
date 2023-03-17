@@ -9,8 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="2Queue" />
         <module name="8Hash" />
+        <module name="11Graph" />
         <module name="1SparseArray" />
         <module name="3LinkedList" />
+        <module name="12CommonAlgorithm" />
         <module name="6Sort" />
         <module name="10Tree" />
         <module name="4Stack" />

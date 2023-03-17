@@ -1,9 +1,7 @@
 package com.cloud.j红黑树MySelf;
 
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
  * @author ByondCloud
@@ -339,11 +337,11 @@ class RBTree {
         if (node == null) {
             return null;
         } else if (node.right != null) {
-            Node preNode = node.right;
-            while (preNode.left != null) {
-                preNode = preNode.left;
+            Node nextNode = node.right;
+            while (nextNode.left != null) {
+                nextNode = nextNode.left;
             }
-            return preNode;
+            return nextNode;
         } else {
             Node father = node.parent;
             Node son = node;
@@ -395,14 +393,5 @@ class Node {
     public Node(int value, Node parent) {
         this.value = value;
         this.parent = parent;
-    }
-
-    @Override
-    public String toString() {
-        return "Node{" +
-                "parent=" + parent +
-//                ", color=" + color +
-                ", value=" + value +
-                '}';
     }
 }

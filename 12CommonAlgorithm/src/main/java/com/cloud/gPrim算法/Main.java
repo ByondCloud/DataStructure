@@ -1,0 +1,107 @@
+package com.cloud.gPrim算法;
+
+import java.util.Arrays;
+
+/**
+ * @author ByondCloud
+ * @version 1.0
+ * @Date 2023/3/17
+ * @Time 4:13
+ */
+public class Main {
+    public static void main(String[] args) {
+        char[] data = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g'};
+        int vertex = data.length;
+
+        int[][] weight = new int[][]{
+                {10000, 5, 7, 10000, 10000, 10000, 2},
+                {5, 10000, 10000, 9, 10000, 10000, 3},
+                {7, 10000, 10000, 10000, 8, 10000, 10000},
+                {10000, 9, 10000, 10000, 10000, 4, 10000},
+                {10000, 10000, 8, 10000, 10000, 5, 4},
+                {10000, 10000, 10000, 4, 5, 10000, 6},
+                {2, 3, 10000, 10000, 4, 6, 10000}
+        };
+
+
+        MGraph mGraph = new MGraph(vertex);
+        MinTree minTree = new MinTree();
+        minTree.createGraph(mGraph, vertex, data, weight);
+
+        minTree.show(mGraph);
+
+        minTree.prim(mGraph, 0);
+    }
+}
+
+
+class MinTree {
+
+    /**
+     * 创建图的邻接矩阵
+     * @param graph 图对象
+     * @param vertex 顶点
+     * @param data 图的各个顶点值
+     * @param weight 图的邻接矩阵
+     */
+    public void createGraph(MGraph graph, int vertex, char data[], int[][] weight) {
+        int i, j;
+        for (i = 0; i < vertex; i++) {
+            graph.data[i] = data[i];
+            for (j = 0; j < vertex; j++) {
+                graph.weight[i][j] = weight[i][j];
+            }
+        }
+    }
+
+
+    public void show(MGraph graph) {
+        for (int[] link : graph.weight) {
+            System.out.println(Arrays.toString(link));
+        }
+    }
+
+    public void prim(MGraph graph, int v) {
+        int[] visited = new int[graph.vertex];
+
+        visited[v] = 1; // 表示访问
+
+        // 记录顶点的下标
+        int h1 = -1;
+        int h2 = -2;
+        int minWeight = 10000; // 最小路径
+        for (int i = 1; i < graph.vertex; i++) {
+
+            // 通过双重遍历，找最小路径
+            for (int j = 0; j < graph.vertex; j++) {
+                for (int k = 0; k < graph.vertex; k++) {
+                    if (visited[j] == 1 && visited[k] == 0 && graph.weight[j][k] < minWeight) {
+                        // 替换最小路径
+                        minWeight = graph.weight[j][k];
+                        h1 = j;
+                        h2 = k;
+
+                    }
+                }
+            }
+            System.out.println(h1 + " " + h2 + " " + minWeight);
+            visited[h2] = 1;
+            // 初始化最小路径
+            minWeight = 10000;
+        }
+
+    }
+}
+
+
+class MGraph {
+    int vertex; // 节点个数
+    char[] data; // 存放节点数据
+    int[][] weight; // 存放边
+
+    public MGraph(int vertex) {
+        this.vertex = vertex;
+        data = new char[vertex];
+        weight = new int[vertex][vertex];
+    }
+}

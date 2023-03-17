@@ -20,6 +20,8 @@
         <module>8Hash</module>
         <module>9HashTable</module>
         <module>10Tree</module>
+        <module>11Graph</module>
+        <module>12CommonAlgorithm</module>
     </modules>
 
     <properties>
