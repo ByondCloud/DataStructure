@@ -34,6 +34,7 @@ class Graph {
     public Graph(char[] vertex, int[][] matrix) {
         this.vertex = vertex;
         this.matrix = matrix;
+
     }
 
     public void showGraph() {
